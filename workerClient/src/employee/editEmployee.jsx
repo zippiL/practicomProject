@@ -10,8 +10,7 @@ import TagRoleStore from '../store/tagRoleStore.js';
 
 function EditEmployee(props) {
     const { open, handleClose, emp } = props;
-    const { register, handleSubmit, control, setValue, reset, formState: { errors } } = useForm();
-
+    const { register, handleSubmit, control, setValue, reset, formState: { errors },watch } = useForm();
     useEffect(() => {
         setValue('firstName', emp?.firstName || '');
         setValue('lastName', emp?.lastName || '');
@@ -19,9 +18,7 @@ function EditEmployee(props) {
         setValue('dateOfBirth', emp?.dateOfBirth || '');
         setValue('dateStartingWork', emp?.dateSartingWork || '');
         setValue('roles', emp?.roles || []);
-
     }, [emp, setValue]);
-
 
     const { fields, append, remove } = useFieldArray({
         control,
@@ -29,24 +26,22 @@ function EditEmployee(props) {
     });
 
     const onSubmit = async (data) => {
-        console.log("data", data);
-        console.log("emp", emp);
         try {
             if (!emp) {
-                console.log("add data");
                 const status = await EmployeeStore.addData(data);
-                handleClose();
             } else {
-                console.log("chang data");
                 data.id = emp.id;
-                console.log(data)
                 const status = await EmployeeStore.changeData(data);
-                handleClose();
             }
+            reset({ roles: [] }); 
+            reset();
+            handleClose();
+
         } catch (error) {
             console.log("edit employee error: ", error.message);
         }
     };
+
     function isIsraeliIdNumber(id) {
         id = String(id).trim();
         if (id.length !== 9 || isNaN(id)) return false;
@@ -58,7 +53,7 @@ function EditEmployee(props) {
     }
     const rolesData = TagRoleStore.data_rol;
     return (
-        <Dialog open={open} onClose={handleClose}>
+        <Dialog open={open} onClose={() => { reset({ roles: [] }); reset(); handleClose(); }}>
             <DialogContent>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Card variant="outlined">
@@ -84,20 +79,31 @@ function EditEmployee(props) {
                                     error={!!errors.idNumber}
                                     helperText={errors.idNumber && errors.idNumber.message}
                                 />                            </FormControl>
-                            <FormControl>
+                                                       <FormControl>
                                 <FormLabel>Date Of Birth</FormLabel>
                                 <TextField
                                     type="datetime-local"
-                                    {...register("dateOfBirth")}
+                                    {...register("dateOfBirth", {
+                                        required: true
+                                    })}
+                                    error={!!errors.dateOfBirth}
+                                    helperText={errors.dateOfBirth && "Date of birth is required"}
                                 />
                             </FormControl>
+
                             <FormControl>
                                 <FormLabel>Date Starting Work</FormLabel>
                                 <TextField
                                     type="datetime-local"
-                                    {...register("dateSartingWork")}
+                                    {...register("dateStartingWork", {
+                                        required: true,
+                                        validate: value => value > watch("dateOfBirth") || "Start date must be after date of birth"
+                                    })}
+                                    error={!!errors.dateStartingWork}
+                                    helperText={errors.dateStartingWork && errors.dateStartingWork.message}
                                 />
                             </FormControl>
+
                             <FormControl>
                                 <FormLabel>Gender</FormLabel>
                                 <Select {...register("gender", { valueAsNumber: true })}>
@@ -107,22 +113,29 @@ function EditEmployee(props) {
                             </FormControl>
 
                             <Typography variant="h6">Roles</Typography>
+
                             {fields.map((field, index) => (
                                 <div key={field.id}>
-                                    <FormControl>
+                                    <FormControl error={!!errors.roles?.[index]?.tagRoleId}>
                                         <FormLabel>Role</FormLabel>
-                                        <Select {...register("roles.0.tagRoleId", {
-                                            valueAsNumber: true,
-                                            validate: (value) =>
-                                                fields.findIndex((f, i) => f.tagRoleId === value) === -1 ||
-                                                "Role already selected"
-                                        })}>
-                                            {rolesData.map(role => (
-                                                <MenuItem key={role.id} value={role.id}>{role.name}</MenuItem>
+                                        <Select
+                                            {...register(`roles.${index}.tagRoleId`, {
+                                                validate: (value) =>
+                                                    fields.filter((f, i) => i !== index && f.tagRoleId === value).length === 0 ||
+                                                    "Role already selected",
+                                            })}
+                                            error={!!errors?.roles?.[index]?.tagRoleId}
+                                            sx={{ borderColor: errors?.roles?.[index]?.tagRoleId ? 'red' : '' }}
+                                            defaultValue={field.tagRoleId || ''}
+
+                                        >
+                                            {rolesData.map((role) => (
+                                                <MenuItem key={role.id} value={role.id}>
+                                                    {role.name}
+                                                </MenuItem>
                                             ))}
                                         </Select>
                                     </FormControl>
-
                                     <FormControl>
                                         <FormLabel>Is Administrative</FormLabel>
                                         <Checkbox

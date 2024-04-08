@@ -22,6 +22,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import EditEmployee from './editEmployee.jsx';
 import DeleteEmployee from './deleteEmployee.jsx';
 import tagRoleApi from '../API/tagRoleApi.js';
+import employeeStore from '../store/employeeStore.js';
 
 const EmployeeTable = ({ rows }) => {
     const [displayEdit, setDisplayEdit] = useState(false);
@@ -44,6 +45,7 @@ const EmployeeTable = ({ rows }) => {
 
     const handleEditClick = (employee) => {
         setSelectedEmployee(employee);
+        employeeStore.current_emp=employee;
         setDisplayEdit(true);
     };
 

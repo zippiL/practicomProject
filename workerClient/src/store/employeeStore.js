@@ -2,9 +2,11 @@ import { action, makeObservable, observable, runInAction } from "mobx";
 import employeeApi from "../API/employeeApi.js";
 class EmployeeStore {
     date_emp = [];
+    current_emp=null
     constructor() {
         makeObservable(this, {
             date_emp: observable,
+            current_emp: observable,
             addData: action,
             changeData: action,
             removeData: action,

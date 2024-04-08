@@ -11,7 +11,7 @@ import HomePage from './general/homePage.jsx';
 import {AppBar,Toolbar,Typography,Button} from '@mui/material/';
 import LoginPage from './general/loginPage.jsx';
 import RoleEmployee from './role/roleEmployee.jsx';
-
+import logo from './assets/logo2.png' 
 const queryClient = new QueryClient();
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -24,6 +24,8 @@ function App() {
       <BrowserRouter >
         <AppBar  position="static">
           <Toolbar>
+          <img src={logo} alt="Logo" style={{ maxHeight: '100%', maxWidth: '5%' }} />
+
           <Button color="inherit" component={Link} to="/">Home Page</Button>
           <Button color="inherit" component={Link} to="/loginPage">Login</Button>
             <Button color="inherit" component={Link} to="/showTable">Employee</Button>

@@ -37,13 +37,13 @@ const Row = observer((props) => {
 
   const handleAlertClose = () => {
     setAlertOpen(false);
-    handleClose(false); // קריאה לפונקציה handleClose עם הערך false
+    handleClose(false); 
   };
 
   async function remove(rowId) {
     try {
       await EmployeeStore.removeData(rowId);
-      handleClose(false); // קריאה לפונקציה handleClose עם הערך false
+      handleClose(false); 
       console.log(`Data with ID ${rowId} removed successfully.`);
     } catch (error) {
       console.error("Error removing data:", error);
