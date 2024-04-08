@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using worker.API.Models;
 using Worker.Core.DTOs;
@@ -11,6 +12,8 @@ namespace worker.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;

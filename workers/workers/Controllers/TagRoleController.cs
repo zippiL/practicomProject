@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using worker.API.Models;
 using Worker.Core.DTOs;
@@ -13,6 +14,8 @@ namespace worker.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
+
     public class TagRoleController : ControllerBase
     {
         private readonly ITagRoleService _tagRoleService;
