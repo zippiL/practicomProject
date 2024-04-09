@@ -63,18 +63,19 @@ For each employee in the table you can see their roles
 
 and it is possible to edit its details. By clicking the edit button, a form opens for me.
 This form is also used to add an employee.
-<div style="display: flex; justify-content: space-around;">
-    <div style="flex: 1; padding: 10px;">
+<div style="display: flex;">
+    <div style="flex: 1; margin-right: 10px;">
         <a href="https://example.com">
             <img src="https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form1.png?raw=true" alt="Product Name Screen Shot" style="width: 100%; height: auto;">
         </a>
     </div>
-    <div style="flex: 1; padding: 10px;">
+    <div style="flex: 1; margin-left: 10px;">
         <a href="https://example.com">
             <img src="https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form2.png?raw=true" alt="Product Name Screen Shot" style="width: 100%; height: auto;">
         </a>
     </div>
 </div>
+
 
 To export to a csv file, for printing or searching, click on the appropriate icons.
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/printExcel.png?raw=true)](https://example.com)
