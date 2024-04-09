@@ -4,7 +4,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
   Paper,
@@ -23,8 +22,9 @@ import EditEmployee from './editEmployee.jsx'
 import DeleteEmployee from './deleteEmployee.jsx'
 import tagRoleApi from '../API/tagRoleApi.js'
 import employeeStore from '../store/employeeStore.js'
+import { observer } from 'mobx-react'
 
-const EmployeeTable = ({ rows }) => {
+const EmployeeTable = observer(({ rows }) => {
   const [displayEdit, setDisplayEdit] = useState(false)
   const [displayDelete, setDisplayDelete] = useState(false)
   const [selectedEmployeeId, setSelectedEmployeeId] = useState(null)
@@ -186,6 +186,5 @@ const EmployeeTable = ({ rows }) => {
       <MUIDataTable title={title} data={data} columns={columns} options={options} />
     </div>
   )
-}
-
+})
 export default EmployeeTable

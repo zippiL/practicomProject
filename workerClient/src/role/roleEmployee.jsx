@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import { Box, IconButton, Button } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import { Edit as EditIcon } from '@mui/icons-material'
+import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material'
 import tagRoleStore from '../store/tagRoleStore'
 import EditRole from './editRole.jsx'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
+import employeeStore from '../store/employeeStore.js'
 
 const RoleEmployee = observer(() => {
   const columns = [
@@ -21,9 +22,28 @@ const RoleEmployee = observer(() => {
         </IconButton>
       ),
     },
+    {
+      field: 'delete',
+      headerName: 'Delete',
+      width: 150,
+      renderCell: (params) => (
+        <IconButton
+          aria-label='delete'
+          onClick={() => handleDelete(params.row)}
+          disabled={params.row.empRoles.length > 0}
+        >
+          <DeleteIcon />
+        </IconButton>
+      ),
+    },
   ]
 
-  const rows = tagRoleStore.data_rol
+  const rows = tagRoleStore.data_rol.map((role) => ({
+    ...role,
+    empRoles: employeeStore.date_emp.filter((emp) =>
+      emp.roles.some((r) => r.tagRoleId === role.id),
+    ),
+  }))
 
   const getRowId = (row) => row.id
 
@@ -37,6 +57,12 @@ const RoleEmployee = observer(() => {
 
   const handleCloseEdit = () => {
     setDisplayEdit(false)
+  }
+
+  const handleDelete = (row) => {
+    if (window.confirm('Are you sure you want to delete this role?')) {
+      tagRoleStore.removeData(row.id)
+    }
   }
 
   return (

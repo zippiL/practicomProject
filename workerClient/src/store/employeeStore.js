@@ -21,6 +21,8 @@ class EmployeeStore {
       runInAction(() => {
         this.date_emp = response.data
         console.log('dataemp: ', this.date_emp)
+        this.date_emp = [...this.date_emp]
+        // sessionStorage.setItem("userName", "guest")
       })
     } catch (error) {
       console.log('getDataEmp', error)
@@ -32,7 +34,7 @@ class EmployeeStore {
       console.log('add data ', data)
       const response = await employeeApi.post(data)
       runInAction(() => {
-        this.date_emp.push(response.data)
+        this.data_rol = [...this.data_rol, response.data]
       })
       return response.status
     } catch {
@@ -52,6 +54,7 @@ class EmployeeStore {
             this.date_emp[index] = response.data
           }
         })
+        this.data_rol = [...this.data_rol]
       })
       console.log('changeDataEMP', response)
       return response.status

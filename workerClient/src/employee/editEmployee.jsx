@@ -46,20 +46,23 @@ function EditEmployee(props) {
   })
 
   const onSubmit = async (data) => {
-    data.gender=0
-    console.log(data);
+    data.gender = 0
+    console.log(data)
+    let status
     try {
       if (!emp) {
-        const status = await EmployeeStore.addData(data)
+        status = await EmployeeStore.addData(data)
       } else {
         data.id = emp.id
-        const status = await EmployeeStore.changeData(data)
+        status = await EmployeeStore.changeData(data)
+        console.log('status', status)
       }
       reset({ roles: [] })
       reset()
       handleClose()
     } catch (error) {
       console.log('edit employee error: ', error.message)
+      handleClose()
     }
   }
 

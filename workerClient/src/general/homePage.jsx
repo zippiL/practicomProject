@@ -1,8 +1,15 @@
 import React from 'react'
 import BackgroundImage from '../assets/9412392.png'
 import { Button, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom' // Import useNavigate
 
 function HomePage() {
+  const navigate = useNavigate() // Use useNavigate to get the navigation function
+
+  const handleRegistrationClick = () => {
+    navigate('/loginPage')
+  }
+
   return (
     <div style={{ display: 'flex' }}>
       <div
@@ -22,7 +29,9 @@ function HomePage() {
           efficiency with our all-in-one employee data management platform.
         </Typography>
         <Typography>One Site, All Your Employee Data.</Typography>
-        <Button>Login/Register Today!</Button>
+        <Button onClick={handleRegistrationClick} variant='contained'>
+          Login Today!
+        </Button>
         <Typography style={{ paddingTop: '10px' }}>
           Start managing your employee data today!
         </Typography>
