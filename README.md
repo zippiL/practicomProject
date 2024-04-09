@@ -69,4 +69,4 @@ Only a role that does not have employees who exercise it can be deleted.
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/tableRole.png?raw=true)](https://example.com)
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/formRole.png?raw=true)](https://example.com)
 We hope you enjoy this development and get the most out of it.
-Thank you for being with us this far:smile:
+Thank you for being with us this far :smile:
