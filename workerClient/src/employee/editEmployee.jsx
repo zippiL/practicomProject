@@ -147,10 +147,12 @@ function EditEmployee(props) {
 
               <FormControl>
                 <FormLabel>Gender</FormLabel>
-                <Select {...register('gender', { valueAsNumber: true })}  defaultValue={emp?.gender !== undefined ? emp.gender : ''}>
+                <Select
+                  {...register('gender', { valueAsNumber: true })}
+                  defaultValue={emp?.gender !== undefined ? emp.gender : ''}
+                >
                   <MenuItem value={0}>Male</MenuItem>
                   <MenuItem value={1}>Female</MenuItem>
-                 
                 </Select>
               </FormControl>
 
