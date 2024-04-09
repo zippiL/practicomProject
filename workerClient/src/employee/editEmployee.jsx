@@ -35,6 +35,7 @@ function EditEmployee(props) {
     setValue('firstName', emp?.firstName || '')
     setValue('lastName', emp?.lastName || '')
     setValue('idNumber', emp?.idNumber || '')
+    setValue('gender', emp?.gender || '')
     setValue('dateOfBirth', emp?.dateOfBirth || '')
     setValue('dateSartingWork', emp?.dateSartingWork || '')
     setValue('roles', emp?.roles || [])
@@ -146,9 +147,10 @@ function EditEmployee(props) {
 
               <FormControl>
                 <FormLabel>Gender</FormLabel>
-                <Select {...register('gender', { valueAsNumber: true })}>
+                <Select {...register('gender', { valueAsNumber: true })}  defaultValue={emp?.gender !== undefined ? emp.gender : ''}>
                   <MenuItem value={0}>Male</MenuItem>
                   <MenuItem value={1}>Female</MenuItem>
+                 
                 </Select>
               </FormControl>
 
