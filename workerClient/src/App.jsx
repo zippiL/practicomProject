@@ -5,7 +5,7 @@ import Employee from './employee/employee.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom'
 import HomePage from './general/homePage.jsx'
-import { AppBar, Toolbar, Typography, Button } from '@mui/material/'
+import { AppBar, Toolbar, Paper, Button } from '@mui/material/'
 import LoginPage from './general/loginPage.jsx'
 import RoleEmployee from './role/roleEmployee.jsx'
 import logo from './assets/logo2.png'
@@ -76,6 +76,10 @@ const App = () => {
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      <Paper sx={{ height:'40px', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <p >Copyright © FITFLEX by Zippi Lando 2024</p>
+
+      </Paper>
     </SessionContext.Provider>
   )
 }
