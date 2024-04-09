@@ -76,7 +76,6 @@ This form is also used to add an employee.
     </div>
 </div>
 
-
 To export to a csv file, for printing or searching, click on the appropriate icons.
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/printExcel.png?raw=true)](https://example.com)
 
