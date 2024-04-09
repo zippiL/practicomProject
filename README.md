@@ -34,5 +34,8 @@ npm run dev
 ```
 ctrl+f5
 ```
+## About The Project
+this is my app
+[![Product Name Screen Shot](https://raw.githubusercontent.com/zippiL/practicomProject/main/workerClient/src/assets/homePage.png)](https://example.com)
 
 
