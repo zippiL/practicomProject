@@ -20,11 +20,11 @@ public class AuthController : ControllerBase
     [HttpPost]
     public IActionResult Login([FromBody] LoginModel loginModel)
     {
-        if (loginModel.UserName == "malkabr" && loginModel.Password == "123456")
+        if (loginModel.UserName == "admin" && loginModel.Password == "123456")
         {
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.Name, "malkabr"),
+                new Claim(ClaimTypes.Name, "admin"),
                 new Claim(ClaimTypes.Role, "teacher")
             };
 

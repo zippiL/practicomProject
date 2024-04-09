@@ -76,9 +76,8 @@ const App = () => {
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-      <Paper sx={{ height:'40px', bottom: 0, left: 0, right: 0 }} elevation={3}>
-      <p >Copyright © FITFLEX by Zippi Lando 2024</p>
-
+      <Paper sx={{ height: '40px', bottom: 0, left: 0, right: 0 }} elevation={3}>
+        <p>Copyright © FITFLEX by Zippi Lando 2024</p>
       </Paper>
     </SessionContext.Provider>
   )

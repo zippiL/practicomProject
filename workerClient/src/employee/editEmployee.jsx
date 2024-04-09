@@ -46,7 +46,7 @@ function EditEmployee(props) {
   })
 
   const onSubmit = async (data) => {
-    data.gender = 0
+    // data.gender = 0
     console.log(data)
     let status
     try {

@@ -37,5 +37,17 @@ ctrl+f5
 ## About The Project
 this is my app
 [![Product Name Screen Shot](https://raw.githubusercontent.com/zippiL/practicomProject/main/workerClient/src/assets/homePage.png)](https://example.com)
+This is my app
+to connect
+Username
+```
+admin
+```
+password
+```
+123456
+```
+Later it will be possible to register on the site and each user will have his own list of employees.
 
-
+[![Product Name Screen Shot](https://raw.githubusercontent.com/zippiL/practicomProject/main/workerClient/src/assets/lopinPage.png)](https://example.com)
+Now you can see that the user is logged in and that the Employee role is enabled
