@@ -1,20 +1,31 @@
 import { Button } from '@mui/material'
 import imag from '../assets/3828541.jpg'
+
 export default function PageNotFound() {
   return (
     <div
       style={{
-        backgroundImage: `url(${imag})`,
-        backgroundSize: '100% 100%', // אופן מילוי התמונה לכל העמוד
-        backgroundRepeat: 'no-repeat',
+        position: 'relative',
         height: '80vh',
-        width: '40vw',
+        width: '100vw',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <Button></Button>
+      <img
+        src={imag}
+        alt="Page not found"
+        style={{
+          maxWidth: '100%',
+          maxHeight: '60vh',
+          marginBottom: '20px',
+        }}
+      />
+      <Button variant="contained" color="primary" href="/">
+        Home Page
+      </Button>
     </div>
   )
 }
