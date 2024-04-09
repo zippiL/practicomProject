@@ -37,7 +37,6 @@ ctrl+f5
 ## About The Project
 this is my app
 [![Product Name Screen Shot](https://raw.githubusercontent.com/zippiL/practicomProject/main/workerClient/src/assets/homePage.png)](https://example.com)
-
 This is my app
 to connect
 Username
@@ -63,18 +62,8 @@ For each employee in the table you can see their roles
 
 and it is possible to edit its details. By clicking the edit button, a form opens for me.
 This form is also used to add an employee.
-<div style="display: flex;">
-    <div style="flex: 1; margin-right: 10px;">
-        <a href="https://example.com">
-            <img src="https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form1.png?raw=true" alt="Product Name Screen Shot" style="width: 100%; height: auto;">
-        </a>
-    </div>
-    <div style="flex: 1; margin-left: 10px;">
-        <a href="https://example.com">
-            <img src="https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form2.png?raw=true" alt="Product Name Screen Shot" style="width: 100%; height: auto;">
-        </a>
-    </div>
-</div>
+[![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form1.png?raw=true)](https://example.com)
+[![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/form2.png?raw=true)](https://example.com)
 
 To export to a csv file, for printing or searching, click on the appropriate icons.
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/printExcel.png?raw=true)](https://example.com)
@@ -85,6 +74,7 @@ To delete we click on the appropriate button, a message will appear and when we 
 Since I want this application to be dynamic, I added a table of roles where the administrator can add roles and edit them.
 Only a role that does not have employees who exercise it can be deleted.
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/tableRole.png?raw=true)](https://example.com)
+
 
 [![Product Name Screen Shot](https://github.com/zippiL/practicomProject/blob/main/workerClient/src/assets/formRole.png?raw=true)](https://example.com)
 We hope you enjoy this development and get the most out of it.
